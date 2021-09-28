@@ -3,7 +3,7 @@ import sys
 import numpy as np
 import matplotlib.pyplot as plt
 
-res_path = '../../dataset/results/'
+res_path = '../data/'
 
 
 def green2rgb(image):

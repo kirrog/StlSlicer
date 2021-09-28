@@ -286,14 +286,14 @@ def form_figures_from_lines(lines):
             added_size_next = 0
             iterator_x2 = iterator_x1
             for line_ind in range(iterator_x2, -1, -1):  # searching start of equals x2
-                if x2_line[line_ind].x2 < l.x1:
+                if x2_line[line_ind].v2.x < l.v1.x:
                     if iterator_x2 > line_ind >= 0:
                         iterator_x2 = line_ind + 1
                     break
                 if line_ind == 0:
                     iterator_x2 = line_ind
             for line, key in zip(x2_line[iterator_x2:], range(iterator_x2, numbers.size)):
-                if numbers[key][1] != 1 and line.x2 == l.x1 and line.y2 == l.y1:
+                if numbers[key][1] != 1 and line.v2.x == l.v1.x and line.v2.y == l.v1.y:
                     numbers[key][1] = 1
                     iterator_x1 = x1_line.index(line)
                     if numbers[iterator_x1][0] == 1:
@@ -306,7 +306,9 @@ def form_figures_from_lines(lines):
                 uncycled_figures += 1
                 fir = result[0]
                 last = result[len(result) - 1]
-                middle = cl.line(fir.x2, fir.y2, last.x1, last.y1, fir.normx + last.normx, fir.normy + last.normy)
+                middle = cl.line(fir.v2, last.v1, cl.vertex2d(fir.norm.x + last.norm.x, fir.norm.y + last.norm.y))
+                fir.v2.add_line(middle)
+                last.v1.add_line(middle)
                 result.append(middle)
                 numbers[x2_line.index(fir)][1] = 1
                 numbers[x1_line.index(last)][0] = 1

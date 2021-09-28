@@ -116,7 +116,7 @@ class figure:
     def __init__(self, linesIn):
         self.lines = linesIn
         for line in linesIn:
-            self.x_max = max(line.x1, self.x_max)
-            self.x_min = min(line.x1, self.x_min)
-            self.y_max = max(line.y1, self.y_max)
-            self.y_min = min(line.y1, self.y_min)
+            self.x_max = max(line.v1.x, self.x_max)
+            self.x_min = min(line.v1.x, self.x_min)
+            self.y_max = max(line.v1.y, self.y_max)
+            self.y_min = min(line.v1.y, self.y_min)

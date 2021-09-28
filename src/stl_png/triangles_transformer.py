@@ -10,7 +10,7 @@ def load_triangles_from_stl(path):
     triangles = []
     size = len(your_mesh.v0)
     vertexes = []
-    for i in range(10000):
+    for i in range(size):
         v1 = vertex(your_mesh.v0[i][0], your_mesh.v0[i][1], your_mesh.v0[i][2])
         v2 = vertex(your_mesh.v1[i][0], your_mesh.v1[i][1], your_mesh.v1[i][2])
         v3 = vertex(your_mesh.v2[i][0], your_mesh.v2[i][1], your_mesh.v2[i][2])
