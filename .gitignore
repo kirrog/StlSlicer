@@ -1,2 +1,4 @@
 /data/
 /venv/
+/cmake-build-debug/
+/.idea/

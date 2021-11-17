@@ -3,7 +3,9 @@ project(StlSlicer CUDA)
 
 set(CMAKE_CUDA_STANDARD 14)
 
-add_executable(StlSlicer main.cu)
+set(SOURCES main.cu main.cuh)
+
+add_executable(StlSlicer ${SOURCES})
 
 set_target_properties(StlSlicer PROPERTIES
         CUDA_SEPARABLE_COMPILATION ON)
